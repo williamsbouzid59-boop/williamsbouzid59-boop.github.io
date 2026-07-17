@@ -1,0 +1,197 @@
+const translations = {
+  fr: {
+    skip: "Aller au contenu",
+    brandRole: "Ingénierie · Recherche",
+    navWork: "Projets",
+    navResearch: "Recherche",
+    navPath: "Parcours",
+    navToolbox: "Compétences",
+    navContact: "Contact",
+    availability: "Disponible oct.–nov. 2026 · Mobilité internationale",
+    heroLine1: "Concevoir des",
+    heroAccent: "systèmes complexes",
+    heroLine2: "du signal à la machine intelligente.",
+    heroIntro: "Étudiant en dernière année de Master et stagiaire de recherche, à l’interface du traitement du signal, de la vision, de l’estimation, de l’automatique et des systèmes embarqués.",
+    exploreWork: "Découvrir les projets",
+    downloadCv: "Télécharger le CV",
+    heroLocation: "France · Italie · Ouvert à l’international",
+    scroll: "Explorer le profil",
+    profileKicker: "Profil / 01",
+    profileTitle: "Une démarche de recherche ancrée dans la pratique de l’ingénierie.",
+    profileLead: "J’étudie comment observer, modéliser et commander des systèmes complexes — et comment transformer les méthodes mathématiques en outils d’ingénierie fiables.",
+    profileBody: "Mon parcours relie ingénierie de l’information, mathématiques appliquées et expérimentation. J’aime passer de la théorie à l’implémentation : estimation robuste, détection, acquisition embarquée, simulation et validation.",
+    metricM1: "Master 1 · 1/19",
+    metricM2: "Master 2, semestre 1 · 1/17",
+    metricVision: "Vision par ordinateur",
+    metricGrad: "Obtention du Master prévue",
+    workKicker: "Projets sélectionnés / 02",
+    workTitle: "Des projets fondés sur les preuves, pas sur les mots-clés.",
+    workIntro: "Une sélection raisonnée de projets académiques. Chacun met en avant la question, la méthode et la logique de validation, sans prétendre à une maturité industrielle.",
+    filterAll: "Tous",
+    filterPerception: "Perception",
+    filterControl: "Commande",
+    filterSignals: "Signaux",
+    filterEmbedded: "Embarqué",
+    tagPerception: "Perception",
+    tagControl: "Commande + embarqué",
+    tagControlOnly: "Automatique",
+    tagSignals: "Signaux aléatoires",
+    tagImaging: "Traitement d’images",
+    tagEmbedded: "Systèmes embarqués",
+    tagMultisensor: "Traitement multicapteurs",
+    method: "Méthode",
+    p1Title: "Vision géométrique & reconstruction 3D",
+    p1Desc: "Étalonnage de caméra et reconstruction de scène par DLT normalisée, décomposition SVD, estimation robuste de la matrice fondamentale par RANSAC et triangulation.",
+    p2Title: "Autonomie, estimation & commande d’un quadricoptère",
+    p2Desc: "Une étude modulaire couvrant l’estimation d’attitude par IMU, l’intégration Raspberry Pi–MultiWii, la communication avec une station au sol et des missions virtuelles par points de passage.",
+    p3Title: "Commande d’un procédé multivariable",
+    p3Desc: "Modélisation couplée niveau–température à partir des bilans de masse et d’énergie, puis linéarisation, synthèse LQR et analyse de stabilité.",
+    p4Title: "Détection dans un bruit coloré",
+    p4Desc: "Estimation de covariance, règles de décision de Neyman–Pearson et filtrage optimal évalués par courbes ROC et expériences de Monte-Carlo.",
+    p5Title: "Vision multispectrale & industrielle",
+    p5Desc: "Chaînes d’analyse pour le comptage, la classification et l’interprétation spectrale à partir de descripteurs géométriques, colorimétriques et d’histogrammes.",
+    p6Title: "Séparation aveugle de sources par AMUSE",
+    p6Desc: "Reconstruction de signaux latents à partir d’observations capteurs mélangées, par matrices de covariance décalées, décomposition généralisée en valeurs propres et vérifications spectrales, puis tests sous bruit gaussien.",
+    p7Title: "Instrumentation & interfaces embarquées",
+    p7Desc: "Travaux pratiques reliant le conditionnement de capteurs en pont et la modélisation de la conversion aux expériences sur microcontrôleur, Linux embarqué, bus numériques et capteurs inertiels.",
+    researchKicker: "Recherche actuelle / 03",
+    internshipLabel: "Stage de recherche Erasmus+ · DITEN, Université de Gênes",
+    researchTitle: "Modélisation appliquée et validation à l’interface du mouvement humain et de l’environnement maritime.",
+    researchBody: "Mon stage de fin d’études explore comment des modèles numériques peuvent contribuer à l’étude de la réponse humaine dans des environnements dynamiques. Le travail combine calcul scientifique, estimation de paramètres et validation. Les détails techniques et les résultats restent volontairement limités pendant le déroulement du projet.",
+    principle1Title: "Hypothèses traçables",
+    principle1Body: "Documenter ce que le modèle connaît, ce qu’il ignore et pourquoi.",
+    principle2Title: "Valider avant d’affirmer",
+    principle2Body: "Comparer comportements analytiques, numériques et observés.",
+    principle3Title: "Interprétation critique",
+    principle3Body: "Traiter les limites comme une partie du résultat d’ingénierie.",
+    pathKicker: "Parcours académique / 04",
+    pathTitle: "Un parcours international entre sciences et ingénierie.",
+    pathIntro: "Construit entre l’Italie et la France, prolongé par la recherche à Gênes.",
+    typeResearch: "Expérience de recherche",
+    timeline1Title: "Stagiaire de recherche Erasmus+ · Université de Gênes, DITEN",
+    timeline1Body: "Modélisation appliquée, calcul scientifique, estimation et validation dans un environnement de recherche pluridisciplinaire.",
+    typeMaster: "Diplôme de Master",
+    timeline2Title: "Master Ingénierie des Systèmes Complexes · VISTA",
+    timeline2Body: "Vision, traitement du signal, tracking, estimation, automatique et systèmes embarqués à l’Université de Toulon.",
+    rankTag: "Classé premier",
+    typeBachelor: "Diplôme de Licence",
+    timeline3Title: "Licence Sciences pour l’ingénieur",
+    timeline3Body: "Fondements en électronique, électromagnétisme, signaux, automatique, technologies numériques et Linux embarqué.",
+    typeSchool: "Formation scientifique",
+    timeline4Title: "Baccalauréat scientifique",
+    timeline4Body: "Études secondaires scientifiques terminées à Parme, en Italie.",
+    toolboxKicker: "Compétences / 05",
+    toolboxTitle: "Des méthodes et des outils reliés à leurs usages.",
+    toolboxIntro: "Un portrait réaliste d’un profil en début de carrière : bases analytiques solides et profondeur d’implémentation en progression.",
+    toolsMethods: "Méthodes",
+    toolsSoftware: "Logiciels",
+    toolsSystems: "Systèmes",
+    toolsLanguages: "Langues",
+    native: "Langue maternelle",
+    contactKicker: "Contact / 06",
+    contactTitle: "Échangeons autour d’un problème qui mérite d’être modélisé.",
+    contactBody: "Ouvert aux postes d’ingénieur junior, à la R&D appliquée et aux doctorats financés ou industriels à partir d’octobre–novembre 2026.",
+    writeEmail: "Écrire un e-mail",
+    connectLinkedin: "Échanger sur LinkedIn",
+    downloadProfile: "Télécharger le profil complet",
+    footerRole: "Ingénierie des systèmes complexes · Recherche",
+    footerNote: "Portfolio fondé sur des éléments vérifiables. Détails du stage volontairement limités pendant le projet.",
+    backTop: "Retour en haut ↑"
+  }
+};
+
+const defaults = {};
+document.querySelectorAll("[data-i18n]").forEach((node) => {
+  defaults[node.dataset.i18n] = node.textContent.trim();
+});
+
+const languageButton = document.querySelector(".language-toggle");
+const languageOptions = document.querySelectorAll("[data-lang-option]");
+
+function setLanguage(language) {
+  const dictionary = language === "fr" ? translations.fr : defaults;
+  document.documentElement.lang = language;
+
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    const key = node.dataset.i18n;
+    if (dictionary[key]) node.textContent = dictionary[key];
+  });
+
+  languageOptions.forEach((option) => {
+    option.classList.toggle("active", option.dataset.langOption === language);
+  });
+
+  document.title = language === "fr"
+    ? "Williams Maikol Bouzid — Ingénierie & Recherche"
+    : "Williams Maikol Bouzid — Engineering & Research";
+
+  try {
+    localStorage.setItem("portfolio-language", language);
+  } catch (_) {
+    // The site remains fully usable when storage is disabled.
+  }
+}
+
+languageButton?.addEventListener("click", () => {
+  setLanguage(document.documentElement.lang === "fr" ? "en" : "fr");
+});
+
+try {
+  const preferredLanguage = localStorage.getItem("portfolio-language");
+  if (preferredLanguage === "fr") setLanguage("fr");
+} catch (_) {
+  // No persistence is required.
+}
+
+const menuToggle = document.querySelector(".menu-toggle");
+const navPanel = document.querySelector(".nav-panel");
+
+function closeMenu() {
+  menuToggle?.setAttribute("aria-expanded", "false");
+  navPanel?.classList.remove("open");
+  document.body.classList.remove("menu-open");
+}
+
+menuToggle?.addEventListener("click", () => {
+  const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+  menuToggle.setAttribute("aria-expanded", String(!expanded));
+  navPanel?.classList.toggle("open", !expanded);
+  document.body.classList.toggle("menu-open", !expanded);
+});
+
+document.querySelectorAll(".nav-panel a").forEach((link) => link.addEventListener("click", closeMenu));
+
+const filterButtons = document.querySelectorAll(".filter");
+const projectCards = document.querySelectorAll(".project-card");
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
+
+    filterButtons.forEach((candidate) => candidate.classList.toggle("active", candidate === button));
+    projectCards.forEach((card) => {
+      const categories = card.dataset.category.split(" ");
+      card.classList.toggle("is-hidden", filter !== "all" && !categories.includes(filter));
+    });
+  });
+});
+
+const revealItems = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { rootMargin: "0px 0px -8%", threshold: 0.08 }
+  );
+  revealItems.forEach((item) => observer.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+}
+
+document.querySelector("#year").textContent = new Date().getFullYear();
