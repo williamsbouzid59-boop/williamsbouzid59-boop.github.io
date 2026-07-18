@@ -694,6 +694,173 @@ svg {
   text-transform: uppercase;
 }
 
+/* Radar & sonar focus */
+.focus {
+  background:
+    radial-gradient(circle at 13% 22%, rgba(95, 224, 192, 0.11), transparent 25%),
+    radial-gradient(circle at 86% 78%, rgba(143, 220, 241, 0.08), transparent 28%),
+    var(--night);
+  overflow: hidden;
+  position: relative;
+}
+
+.focus::before {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  content: "";
+  height: 720px;
+  pointer-events: none;
+  position: absolute;
+  right: -390px;
+  top: -360px;
+  width: 720px;
+}
+
+.focus-heading {
+  align-items: end;
+  display: grid;
+  gap: 90px;
+  grid-template-columns: 1.35fr .65fr;
+  position: relative;
+}
+
+.focus-heading h2 {
+  font-size: clamp(2.25rem, 4vw, 4.8rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.06;
+  margin: 18px 0 0;
+  max-width: 910px;
+}
+
+.focus-heading > p {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.focus-status {
+  border: 1px solid rgba(215, 255, 114, 0.28);
+  color: var(--acid);
+  display: inline-flex;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.09em;
+  padding: 7px 10px;
+  text-transform: uppercase;
+}
+
+.focus-evidence {
+  border-bottom: 1px solid var(--line-dark);
+  border-top: 1px solid var(--line-dark);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 72px;
+}
+
+.focus-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 430px;
+  padding: 32px;
+  position: relative;
+}
+
+.focus-card + .focus-card {
+  border-left: 1px solid var(--line-dark);
+}
+
+.focus-card-primary {
+  background: rgba(95, 224, 192, 0.055);
+}
+
+.focus-card-top {
+  align-items: start;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.focus-card-top > span {
+  color: rgba(255, 255, 255, 0.52);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  max-width: 140px;
+  text-transform: uppercase;
+}
+
+.focus-card-top strong {
+  color: var(--acid);
+  font-size: clamp(2rem, 3vw, 3.4rem);
+  font-weight: 500;
+  letter-spacing: -0.07em;
+  line-height: .9;
+  white-space: nowrap;
+}
+
+.focus-card-top small {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0;
+}
+
+.focus-card h3 {
+  font-size: clamp(1.3rem, 2vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.18;
+  margin: 72px 0 18px;
+}
+
+.focus-card p {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 13px;
+  margin: 0;
+}
+
+.focus-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 28px;
+}
+
+.focus-tags span {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  padding: 5px 8px;
+  text-transform: uppercase;
+}
+
+.focus-direction {
+  align-items: start;
+  display: grid;
+  gap: 50px;
+  grid-template-columns: .35fr 1.65fr;
+  padding-top: 34px;
+}
+
+.focus-direction span {
+  color: var(--mint);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.focus-direction p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 15px;
+  margin: 0;
+  max-width: 780px;
+}
+
 /* Projects */
 .project-filters {
   border-bottom: 1px solid var(--line);
@@ -752,6 +919,12 @@ svg {
   min-height: 540px;
 }
 
+.project-radar {
+  grid-column: 1 / -1;
+  grid-template-columns: .9fr 1.1fr;
+  min-height: 500px;
+}
+
 .project-number {
   color: rgba(16, 36, 48, 0.42);
   font-family: var(--mono);
@@ -789,12 +962,23 @@ svg {
   min-height: 540px;
 }
 
+.project-radar .project-graphic {
+  border-bottom: 0;
+  border-right: 1px solid var(--line);
+  min-height: 500px;
+}
+
 .project-content {
   align-self: end;
   padding: 30px;
 }
 
 .project-featured .project-content {
+  align-self: center;
+  padding: 50px;
+}
+
+.project-radar .project-content {
   align-self: center;
   padding: 50px;
 }
@@ -872,7 +1056,7 @@ svg {
 .feature-points circle { fill: var(--night); }
 .feature-points circle:nth-child(3), .feature-points circle:nth-child(4) { fill: #258b77; }
 .reprojection { fill: rgba(215,255,114,.44); stroke: #258b77; stroke-width: 2; }
-.graphic-vision text, .graphic-control text, .graphic-tank text, .graphic-signal text,
+.graphic-vision text, .graphic-control text, .graphic-tank text, .graphic-signal text, .graphic-radar text,
 .graphic-multispectral text, .graphic-separation text, .graphic-embedded text {
   fill: var(--ink);
   font-family: var(--mono);
@@ -894,6 +1078,14 @@ svg {
 .noise { fill: none; opacity: .48; stroke: var(--night); }
 .detected { fill: none; stroke: #258b77; stroke-width: 3; }
 .threshold { fill: none; stroke: #b45e37; stroke-dasharray: 5 6; }
+
+.graphic-radar { background: #d8e5e2; }
+.radar-grid circle, .radar-grid path { fill: none; stroke: rgba(16,36,48,.18); }
+.radar-sector { fill: rgba(95,224,192,.28); stroke: none; }
+.radar-sweep { fill: none; stroke: #258b77; stroke-width: 2; }
+.radar-targets circle { fill: var(--acid); stroke: var(--night); stroke-width: 2; }
+.sonar-wave { fill: none; stroke: var(--night); stroke-width: 2; }
+.decision-line { fill: none; stroke: #b45e37; stroke-dasharray: 5 6; }
 
 .graphic-separation { background: #dfe7e0; }
 .source-waves path, .output-waves path { fill: none; stroke: var(--night); stroke-width: 2; }
@@ -1274,6 +1466,7 @@ svg {
   .hero-visual { height: 580px; margin-inline: auto; max-width: 700px; width: 100%; }
   .hero { min-height: unset; }
   .section-heading.split { gap: 45px; grid-template-columns: 1.25fr .75fr; }
+  .focus-heading { gap: 55px; grid-template-columns: 1.2fr .8fr; }
   .toolbox-grid { grid-template-columns: repeat(2, 1fr); }
   .research-grid { grid-template-columns: .45fr 1.55fr; }
   .contact-grid { gap: 70px; }
@@ -1301,12 +1494,20 @@ svg {
   .menu-toggle[aria-expanded="true"] > span:nth-child(2) { opacity: 0; }
   .menu-toggle[aria-expanded="true"] > span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
   .profile-grid, .path-grid, .contact-grid { grid-template-columns: 1fr; }
+  .focus-heading, .focus-direction { grid-template-columns: 1fr; }
+  .focus-heading { align-items: start; gap: 30px; }
+  .focus-evidence { grid-template-columns: 1fr; margin-top: 52px; }
+  .focus-card { min-height: 350px; }
+  .focus-card + .focus-card { border-left: 0; border-top: 1px solid var(--line-dark); }
   .metric-grid { grid-template-columns: repeat(2, 1fr); }
   .metric:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
   .metric:nth-child(4) { border-top: 1px solid var(--line); }
   .project-featured { grid-template-columns: 1fr; }
   .project-featured .project-graphic { border-bottom: 1px solid var(--line); border-right: 0; min-height: 370px; }
   .project-featured .project-content { padding: 34px; }
+  .project-radar { grid-template-columns: 1fr; }
+  .project-radar .project-graphic { border-bottom: 1px solid var(--line); border-right: 0; min-height: 340px; }
+  .project-radar .project-content { padding: 34px; }
   .research-grid { grid-template-columns: 1fr; }
   .research-aside { border-bottom: 1px solid var(--line-dark); border-right: 0; min-height: 0; padding: 0 0 34px; }
   .research-code { display: flex; flex-wrap: wrap; margin-top: 60px; }
@@ -1342,9 +1543,13 @@ svg {
   .filter { flex: 0 0 auto; }
   .project-grid { grid-template-columns: 1fr; }
   .project-featured { grid-column: auto; }
+  .project-radar { grid-column: auto; }
   .project-card { min-height: 0; }
-  .project-graphic, .project-featured .project-graphic { min-height: 255px; }
-  .project-content, .project-featured .project-content { padding: 26px 22px; }
+  .project-graphic, .project-featured .project-graphic, .project-radar .project-graphic { min-height: 255px; }
+  .project-content, .project-featured .project-content, .project-radar .project-content { padding: 26px 22px; }
+  .focus-card { min-height: 370px; padding: 26px 22px; }
+  .focus-card h3 { margin-top: 54px; }
+  .focus-direction { gap: 18px; }
   .research-principles { grid-template-columns: 1fr; }
   .research-principles article { min-height: 150px; padding: 24px 0; }
   .research-principles article + article { border-left: 0; border-top: 1px solid var(--line-dark); padding-left: 0; }

@@ -26,6 +26,9 @@ presented as research outputs.
 
 The July 2026 content review added:
 
+- a dedicated radar and sonar research-focus section grounded in verified academic evidence;
+- radar coursework (17.3/20, ranked 3/25) and the associated DGA lecturer recommendation;
+- sonar systems (18/20) and optimal filtering (17.5/20), framed as academic foundations rather than professional expertise;
 - blind source separation with AMUSE, lagged covariance matrices and spectral/noise checks;
 - Raspberry Pi–MultiWii integration, MSP/MAVLink communication, PWM acquisition and SITL missions;
 - bridge-sensor conditioning and ADC modelling as supporting instrumentation experience.
@@ -40,6 +43,7 @@ The folder can be deployed directly to GitHub Pages, Netlify, Cloudflare Pages o
 ## Privacy choices
 
 - The University of Genoa internship is described only at a high level.
+- Radar and sonar are presented as an academic focus and future R&D direction, not as consulting experience.
 - Experimental data, technical results, supervisor correspondence and internal files are not published.
 - Health information and unrelated personal projects are excluded.
 - The public contact surface is limited to email and LinkedIn.
