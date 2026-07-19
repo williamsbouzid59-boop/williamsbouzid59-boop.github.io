@@ -1,0 +1,10 @@
+/* TEAM */
+Owner: Williams Maikol Bouzid
+Role: Engineering and research portfolio
+Contact: williamsbouzid59@gmail.com
+LinkedIn: https://www.linkedin.com/in/williams-maikol-bouzid-5604a2237
+
+/* SITE */
+Language: English, French
+Technology: HTML, CSS, JavaScript, GitHub Pages
+Last major SEO review: 2026-07-19
