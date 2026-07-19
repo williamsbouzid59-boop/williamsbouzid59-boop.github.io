@@ -1,0 +1,17 @@
+# Williams Maikol Bouzid
+
+Engineering and research portfolio focused on signal processing, radar and sonar, statistical detection, computer vision, control, embedded systems, simulation, biomechanics and applied research.
+
+Canonical website: https://williamsbouzid59-boop.github.io/
+LinkedIn: https://www.linkedin.com/in/williams-maikol-bouzid-5604a2237
+Contact: mailto:williamsbouzid59@gmail.com
+
+## Main areas
+- Signal processing
+- Radar and sonar
+- Statistical detection and estimation
+- Computer vision
+- Control systems
+- Embedded systems
+- Biomechanical simulation and OpenSim
+- Industrial research and forecasting
