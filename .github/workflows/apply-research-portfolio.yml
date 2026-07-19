@@ -1,0 +1,225 @@
+name: Apply research portfolio improvements
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-research-portfolio.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Improve homepage SEO and research positioning
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('index.html')
+          html = path.read_text(encoding='utf-8')
+
+          def sub(pattern, replacement, text=html, flags=0):
+              return re.sub(pattern, replacement, text, count=1, flags=flags)
+
+          html = re.sub(
+              r'<meta\s+name="description"\s+content="[^"]*"\s*>',
+              '<meta name="description" content="Portfolio of Williams Maikol Bouzid, MSc engineer and research intern in complex systems, biomechanics, OpenSim, SCONE, radar and sonar signal processing, computer vision, control and embedded systems.">',
+              html,
+              count=1,
+              flags=re.S,
+          )
+          html = re.sub(
+              r'<meta\s+property="og:description"\s+content="[^"]*"\s*>',
+              '<meta property="og:description" content="Engineering and research portfolio focused on biomechanics, OpenSim, SCONE, radar and sonar signal processing, perception, control and scientific validation.">',
+              html,
+              count=1,
+              flags=re.S,
+          )
+          html = re.sub(
+              r'<meta name="twitter:description" content="[^"]*">',
+              '<meta name="twitter:description" content="Complex systems, biomechanics, OpenSim, SCONE, radar, sonar, signal processing, perception and control.">',
+              html,
+              count=1,
+          )
+          html = re.sub(
+              r'<title>.*?</title>',
+              '<title>Williams Maikol Bouzid | Complex Systems, Biomechanics &amp; Signal Processing</title>',
+              html,
+              count=1,
+              flags=re.S,
+          )
+
+          if 'site.webmanifest' not in html:
+              html = html.replace(
+                  '<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">',
+                  '<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">\n'
+                  '    <link rel="manifest" href="site.webmanifest">\n'
+                  '    <link rel="sitemap" type="application/xml" href="sitemap.xml">\n'
+                  '    <meta name="author" content="Williams Maikol Bouzid">\n'
+                  '    <meta name="keywords" content="Williams Maikol Bouzid, complex systems engineer, biomechanics, OpenSim, SCONE, radar, sonar, signal processing, computer vision, control systems, embedded systems, PhD, CIFRE">\n'
+                  '    <meta name="referrer" content="strict-origin-when-cross-origin">\n'
+                  '    <meta name="color-scheme" content="light dark">'
+              )
+
+          if '"Biomechanics"' not in html:
+              html = html.replace(
+                  '          "Complex Systems Engineering"\n        ]',
+                  '          "Complex Systems Engineering",\n'
+                  '          "Biomechanics",\n'
+                  '          "OpenSim",\n'
+                  '          "SCONE",\n'
+                  '          "Motion Induced Interruptions",\n'
+                  '          "Scientific Computing",\n'
+                  '          "Model Validation"\n'
+                  '        ]'
+              )
+
+          if '"@type": "ProfilePage"' not in html:
+              extra_schema = '''
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": "Williams Maikol Bouzid — Engineering & Research Portfolio",
+        "url": "https://williamsbouzid59-boop.github.io/",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Williams Maikol Bouzid",
+          "jobTitle": "Complex Systems Engineering MSc Student and Research Intern",
+          "affiliation": [
+            {"@type": "CollegeOrUniversity", "name": "Université de Toulon"},
+            {"@type": "CollegeOrUniversity", "name": "University of Genoa"}
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/williams-maikol-bouzid-5604a2237",
+            "https://github.com/williamsbouzid59-boop"
+          ]
+        }
+      }
+    </script>
+'''
+              html = html.replace('  </head>', extra_schema + '  </head>')
+
+          html = html.replace('<strong>Williams Bouzid</strong>', '<strong>Williams Maikol Bouzid</strong>')
+
+          if 'complex systems engineer and research intern' not in html:
+              html = html.replace(
+                  '            <h1>',
+                  '            <p class="sr-only">Williams Maikol Bouzid — complex systems engineer and research intern.</p>\n            <h1>',
+                  1,
+              )
+
+          html = re.sub(
+              r'<p class="hero-intro" data-i18n="heroIntro">.*?</p>',
+              '<p class="hero-intro" data-i18n="heroIntro">\n'
+              '              I am Williams Maikol Bouzid, a final-year MSc engineering student and research intern working across\n'
+              '              biomechanics, OpenSim and SCONE modelling, signal processing, computer vision, estimation, control\n'
+              '              and embedded systems, with a focused academic track in radar and sonar.\n'
+              '            </p>',
+              html,
+              count=1,
+              flags=re.S,
+          )
+
+          if 'Biomechanics · OpenSim · SCONE' not in html:
+              html = html.replace(
+                  '              <span>Embedded systems</span>',
+                  '              <span>Embedded systems</span>\n              <span>Biomechanics · OpenSim · SCONE</span>',
+                  1,
+              )
+
+          html = re.sub(
+              r'<p data-i18n="profileBody">.*?</p>',
+              '<p data-i18n="profileBody">\n'
+              '              My path combines information engineering, applied mathematics and experimentation. I move between\n'
+              '              theory and implementation: from robust estimation and detection to embedded sensing, musculoskeletal\n'
+              '              simulation and validation. My current research includes biomechanics, OpenSim, SCONE and human\n'
+              '              stability in marine environments, alongside radar and sonar signal processing, statistical decision\n'
+              '              theory and optimal filtering.\n'
+              '            </p>',
+              html,
+              count=1,
+              flags=re.S,
+          )
+
+          html = re.sub(
+              r'<p data-i18n="researchBody">.*?</p>',
+              '<p data-i18n="researchBody">\n'
+              '              My final-year internship studies Motion Induced Interruptions and postural stability in marine\n'
+              '              environments. The work combines OpenSim musculoskeletal modelling, SCONE simulations, biomechanical\n'
+              '              data processing, inverse kinematics, inverse dynamics, static optimisation, seakeeping concepts and\n'
+              '              critical model validation. Technical details remain selective while the project is ongoing.\n'
+              '            </p>',
+              html,
+              count=1,
+              flags=re.S,
+          )
+
+          html = re.sub(
+              r'<p data-i18n="timeline1Body">.*?</p>',
+              '<p data-i18n="timeline1Body">Biomechanics, OpenSim, SCONE, postural stability, scientific computing and validation in a multidisciplinary marine-research setting.</p>',
+              html,
+              count=1,
+              flags=re.S,
+          )
+
+          if 'OpenSim: IK, ID &amp; static optimisation' not in html:
+              html = html.replace(
+                  '                <li>PID, LQR &amp; state-space methods</li>',
+                  '                <li>PID, LQR &amp; state-space methods</li>\n'
+                  '                <li>OpenSim: IK, ID &amp; static optimisation</li>\n'
+                  '                <li>SCONE biomechanical simulation &amp; validation</li>',
+                  1,
+              )
+
+          if '<li>OpenSim · SCONE</li>' not in html:
+              html = html.replace(
+                  '                <li>LTspice · Vivado</li>',
+                  '                <li>LTspice · Vivado</li>\n                <li>OpenSim · SCONE</li>',
+                  1,
+              )
+
+          html = re.sub(
+              r'<p data-i18n="contactBody">.*?</p>',
+              '<p data-i18n="contactBody">\n'
+              '              Open to graduate engineering roles, applied R&amp;D and funded PhD or industrial doctorate\n'
+              '              opportunities from October–November 2026, especially in biomechanics, modelling and simulation,\n'
+              '              radar, sonar, statistical signal processing, control and multisensor systems.\n'
+              '            </p>',
+              html,
+              count=1,
+              flags=re.S,
+          )
+
+          html = html.replace('<script src="app.js"></script>', '<script src="app.js" defer></script>')
+          html = html.replace('rel="noreferrer">LinkedIn', 'rel="me noreferrer">LinkedIn')
+          html = html.replace('rel="noreferrer">\n               <span data-i18n="connectLinkedin">', 'rel="me noreferrer">\n               <span data-i18n="connectLinkedin">')
+
+          required = [
+              'Complex Systems, Biomechanics &amp; Signal Processing',
+              'Biomechanics · OpenSim · SCONE',
+              'Motion Induced Interruptions',
+              'OpenSim: IK, ID &amp; static optimisation',
+              'site.webmanifest',
+              '"@type": "ProfilePage"',
+          ]
+          missing = [item for item in required if item not in html]
+          if missing:
+              raise SystemExit(f'Validation failed, missing: {missing}')
+
+          path.write_text(html, encoding='utf-8')
+          PY
+
+      - name: Commit homepage improvements and remove temporary workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f .github/workflows/apply-research-portfolio.yml
+          git add index.html .github/workflows/apply-research-portfolio.yml
+          git commit -m "Upgrade portfolio for research and R&D positioning"
+          git push
