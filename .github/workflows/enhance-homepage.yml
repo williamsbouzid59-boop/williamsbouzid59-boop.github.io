@@ -5,6 +5,8 @@ on:
   push:
     paths:
       - '.github/workflows/enhance-homepage.yml'
+  schedule:
+    - cron: '*/5 * * * *'
 
 permissions:
   contents: write
