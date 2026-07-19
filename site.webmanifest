@@ -1,0 +1,17 @@
+{
+  "name": "Williams Maikol Bouzid — Engineering & Research",
+  "short_name": "Williams Bouzid",
+  "description": "Research and engineering portfolio of Williams Maikol Bouzid.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071b2b",
+  "theme_color": "#071b2b",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
